@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자료형</title>
+</head>
+
+<body>
+  <script>
+    /*
+    자료형 (Data type) : 변수에 저장되는 값의 종류
+  
+    원시형 자료 (primitive type) : 해당 변수에 값이 바로 대입되어 있는 형태 (callstack에 저장)
+    변수에 원시형 자료가 담겨있을 때 해당 변수값을 복사하면 값 자체가 복사됨 (deep copy) 깉은 복사
+    -문자열 (string)
+    -숫자 (number)
+    -불리언 (boolean)
+    -undefined (undefined)
+  
+    참조형 자료 (reference type) : 헤당 변수에 바로 값이 대입되는 게 아닌 원래 값이 있는 위치의 참조 주소가 대입되어 있는 형태
+    (값이 아니라 값의 주소가 담겨있는 것임 (참조형 자료의 값을 head 메모리에 저장되어 있고 heap 메모리에 있는 위치 링크 (참조값) 이 변수에 저장되는 형태) 
+    변수에 참조형 자료가 담겨있을때 해당 변수값을 복사하면 값 자체가 복사되는 것이 아닌 참조링크만 복사됨 (shallow copy) 얕은복사
+    -배열 (array)
+    -객체 (object)
+    -null (object)
+    */
+
+    let txt = 'hello'; //문자형
+    let num = 5; //숫자형
+    let isFemale = true; //boolean
+    let err; //변수 선언 뒤, 값을 할당하지 않았을 때 자동으로 들어가는 자료형(undefined)
+
+    let colors = ['red', 'yellow', 'green']; //배열-규칙성이 있는 여러개의 자료들을 그룹화할때
+    //여러개의 자료값을 그룹화할때 해당 값을 key: value형태로 구조화된 형태
+    let studentA = {
+      name: 'David',
+      age: 20,
+      isFemale: False
+    }
+
+    let empty = null; //undefined와는 의도치 않게 값이 비어있는 것이 아니라 일부러 값을 비워둘 떄 사용
+  </script>
+</body>
+
+</html>
