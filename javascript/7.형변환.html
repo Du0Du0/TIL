@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>형변환</title>
+</head>
+
+<body>
+  <script>
+    /*
+    형변환
+    */
+    let num1 = 1;
+    let num2 = 2;
+    let num3 = '3';
+    console.log(num1 + num2 + num3); //문자 33 첫번째 +는 산술연산자 두번째 +는 연결연산자인거네!!(마지막에 형변환 일어남)
+    console.log(num3 + num2 + num1); //321 (처음부터 문자로 인식)
+
+    let name = 'David';
+    console.log('안녕 name'); //문자 안녕 name
+    //변수를 따옴표 안쪽에 집어 넣으면 문자화되기 때문에 문자열과 변수를 분리시킨 다음 +연산자로 결합
+    console.log('안녕' + name); //문자 안녕David
+
+    let named = '홍길동';
+    console.log('저의 이름은 ' + named + ' 입니다.'); // 저의 이름은 홍길동 입니다.
+    //es6이후 생긴 기능 템플릿 리터럴 (아래) -백틱이용
+    console.log(`저의 이름은 ${named} 입니다.`) //저의 이름은 홍길동 입니다.
+
+    console.log(2 + false); //2
+    console.log(2 + true); //3
+    console.log(2 + null); //2
+
+
+
+  </script>
+</body>
+
+</html>
