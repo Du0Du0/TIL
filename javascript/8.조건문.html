@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조건문</title>
+</head>
+
+<body>
+  <script>
+    /*
+    특정 조건마다의 분기를 생성해서 코드 흐름에 변화를 줌
+
+    if(조건식1) {
+      조건식1이 참이면 해당 코드블록의 구분이 실행되고 종료
+      조건식1이 거짓이면 이곳의 구문이 무시되고 다음 조건식으로 넘어감
+    }
+    
+    else if(조건식2) {
+      조건식2가 참이면 해당 코드블록의 구분이 실행되고 종료
+      조건식2가 거짓이면 이곳의 구문이 무시되고 다음 조건식으로 넘어감
+    }
+
+      else(조건식3) {
+      위의 모든 조건이 참이 아니면
+      무조건 해당 코드블록을 실행하고 종료
+    }
+    */
+
+    //생성자 연산자 인스턴스 생성 new
+    const now = new Date();
+    console.log(now); // Tue May 23 2023 11:54:36 GMT+0900 (한국 표준시)
+
+    const weekdays = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'Sept', 'Oct', '11', '12'];
+    now.getHours();
+    console.log(now.getHours()); // 11 현재 시간값 반환
+    console.log(now.getMinutes()); //56 현재 분값 변환
+    console.log(now.getSeconds()); //43 현재 초값 변환
+    console.log(weekdays[now.getMonth()]); // May 현재 월값 변환 cf)1월이 0으로 찍히니까 주의하자!!! 그냥 할때는 April로 나옴
+    console.log(now.getFullYear()); //현재 연도 변환
+
+    //시간에 따라 배경색이 다르게 할 수있다. 또는 클래스를 붙였다 떼어낼수 있다.
+    const currentTime = now.getHours();
+    if (currentTime >= 0 && currentTime < 9) {
+      document.body.style.backgroundColor = 'violet';
+    } else if (currentTime >= 9 && currentTime < 15) {
+      document.body.style.backgroundColor = 'skyblue';
+    } else {
+      document.body.style.backgroundColor = 'orange';
+    } //현재 시간때문에 하늘색으로 바탕색이 보임
+  </script>
+</body>
+
+</html>
