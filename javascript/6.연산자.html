@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>연산자</title>
 </head>
 
 <body>
@@ -35,6 +35,20 @@
     num += 3 //6
     //자기 자신에 연산처리한 값을 다시 자기자신에게 덮어쓰기
     console.log(num);
+
+    let initNum = 1;
+    //initNum = initNum +1;
+    //initNum += 1;
+
+    //후위 증감 연산자 - 초기값을 먼저 사용하고, 이후에 초기값을 증가 
+    let resultNum = initNum++;
+    console.log(resultNum, initNum); //1 2
+
+    //전위 증감 연산자 - 초기값을 먼저 증감시키고, 증감된 값을 바로 사용 
+    let initNumB = 1;
+    let resultNumB = ++initNumB;
+    console.log(resultNum, initNum); // 2 2
+
   </script>
 </body>
 
