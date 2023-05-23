@@ -20,9 +20,10 @@
     -불리언 (boolean)
     -undefined (undefined)
   
-    참조형 자료 (reference type) : 헤당 변수에 바로 값이 대입되는 게 아닌 원래 값이 있는 위치의 참조 주소가 대입되어 있는 형태
+    참조형 자료 (reference type, object type) : 헤당 변수에 바로 값이 대입되는 게 아닌 원래 값이 있는 위치의 참조 주소가 대입되어 있는 형태
     (값이 아니라 값의 주소가 담겨있는 것임 (참조형 자료의 값을 head 메모리에 저장되어 있고 heap 메모리에 있는 위치 링크 (참조값) 이 변수에 저장되는 형태) 
     변수에 참조형 자료가 담겨있을때 해당 변수값을 복사하면 값 자체가 복사되는 것이 아닌 참조링크만 복사됨 (shallow copy) 얕은복사
+    변수에 해당 값만 참조되는 것이 아닌 해당 자료형에서 쓸 수 있는 내장 기능 (메서드)들까지 같이 참조가 됨
     -배열 (array)
     -객체 (object)
     -null (object)
@@ -34,12 +35,61 @@
     let err; //변수 선언 뒤, 값을 할당하지 않았을 때 자동으로 들어가는 자료형(undefined)
 
     let colors = ['red', 'yellow', 'green']; //배열-규칙성이 있는 여러개의 자료들을 그룹화할때
+    console.log(colors.length); //변수에 해당 값만 참조되는 것이 아닌 해당 자료형에서 쓸 수 있는 내장 기능 (메서드)까지 같이 참조가 됨
+    colors.forEach(() => console.log(data)) //배열의 값을 반복도는 배열전용 내장함수 (메서드)
+
+    // 배열의 값 변경
+    colors[0] = 'hotpink';
+    console.log(colors);
+
+    colors.push('aqua'); //배열에 값 뒤에 추가
+    colors.pop('aqua'); //배열 맨 뒤에 삭제
+
+    colors.unshift('black'); //배열에 맨 앞에 추가
+    colors.shift('black'); //배열에 맨 앞에 삭제
+
+
+    //참조형 자료는 변수값을 새로운 변수에 옮겨담아서 복사했을 떄 얕은 복사가 됨
+    //원본은 그대로 있는 상태에서 해당 원본을 참조하는 참조링크만 2개로 복사가 됨
+    //새로 복사한 배열의 변수값을 변경을 해도 그 변수에 담겨있는 참조링크가 지칭한느 값은 동일하기 때문에 결국은 원본은 훼손 (불변성유지 안됨)
+    let oldArr = [1, 2, 3];
+    let newArr = oldArr;
+    newArr[0] = 0;
+    console.log(newArr);
+
+    //스프레드 연산자 전기 연산자
+    let oldArr = [1, 2, 3];
+    let newArr = [...oldArr];
+    newArr[0] = 0;
+    console.log(newArr);
+
+
+
     //여러개의 자료값을 그룹화할때 해당 값을 key: value형태로 구조화된 형태
+    //객체의 property 키값은 따옴표를 붙이지 않아도 스크립트 엔진이 내부적으로 자동으로 변환처리
+    //하지만 is-Female같이 예약어를 같이 쓴 경우에는 오류 발생 : 해병방법 - 따옴표로 강제로 감싸줌
     let studentA = {
-      name: 'David',
-      age: 20,
-      isFemale: False
+      'name': 'David',
+      'age': 20,
+      'is-Female': False
     }
+
+    //특정 객체의 property key 값의 value값을 가져올때는 아래 2가지 방법으로 처리
+    console.log(studentA['is-Female']);
+    console.log(studentA.name);
+    console.log(studentA['name']);
+
+    //객체의 특정 키 값의 프로퍼티 삭제
+    delete studentA.age;
+    console.log(studentA);
+
+
+
+    studentA.name = 'Peter';
+    console.log(studentA);
+
+    studentA.address = 'Seoul';
+    console.log(studentA);
 
     let empty = null; //undefined와는 의도치 않게 값이 비어있는 것이 아니라 일부러 값을 비워둘 떄 사용
   </script>
