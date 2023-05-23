@@ -50,6 +50,12 @@
     } else {
       document.body.style.backgroundColor = 'orange';
     } //현재 시간때문에 하늘색으로 바탕색이 보임
+
+    //if 조건문이 한줄일때는 굳이 괄호를 쓸 필요 없음
+    //if조건문은 확실할 때 사용하고, switch문은 알수 없는 횟수만큼 반복할 때 사용함
+    if (currentTime >= 0 && currentTime < 9) document.body.style.backgroundColor = 'violet';
+    else if (currentTime >= 9 && currentTime < 15) document.body.style.backgroundColor = 'skyblue';
+    else document.body.style.backgroundColor = 'orange';
   </script>
 </body>
 
