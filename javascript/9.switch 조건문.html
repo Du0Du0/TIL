@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>switch 조건문</title>
+</head>
+
+<body>
+  <script>
+    /*
+    조건으로 나오는 값읲 ㅐ턴이 정해져있을 때
+    해당 사례 (패턴)에 따라서 분기처리
+
+    switch(값) {
+      case 값 : 실행할 구문;
+      break;
+      case 값 : 실행할 구문;
+      break;
+      case 값 : 실행할 구문;
+      break;
+      case 값 : 실행할 구문;
+      break;
+      default: 모든 케이스에 값이 부합되지 않을 때 무조건 실행하고 종료될 구문
+    }
+    */
+
+    switch (parseInt(Math.random() * 5)) {
+      case 1: document.body.style.backgroundColor = 'violet';
+        break;
+      case 2: document.body.style.backgroundColor = 'skyblue';
+        break;
+      case 3: document.body.style.backgroundColor = 'skyblue';
+        break;
+      case 4: document.body.style.backgroundColor = 'orange';
+        break;
+      default: document.body.style.backgroundColor = 'black';
+    }
+
+    //Math.random() 0~1 사이의 실수값 변환
+    const result = Math.random();
+    console.log(result);
+
+    //1~10사이의 랜덤 정수값을 반환하는 상용구문
+    const result = parseInt(Math.random() * 10) + 1;
+    console.log(result);
+
+    //1~5사이의 랜덤 정수값을 반환하는 상용구문
+    const result = parseInt(Math.random() * 5) + 1;
+    console.log(result);
+  </script>
+</body>
+
+</html>

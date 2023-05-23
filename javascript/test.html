@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <script>
+
+    //01. 새로고침할 때마다 배경색이 바뀌는 예시 코드
+    switch (parseInt(Math.random() * 5)) {
+      case 1: document.body.style.backgroundColor = 'violet';
+        break;
+      case 2: document.body.style.backgroundColor = 'skyblue';
+        break;
+      case 3: document.body.style.backgroundColor = 'skyblue';
+        break;
+      case 4: document.body.style.backgroundColor = 'orange';
+        break;
+      default: document.body.style.backgroundColor = 'black';
+    }
+
+
+    //자바스크립트는 html,js파일 외에는 접근 권한이 없으므로
+    //js로 style객체를 변경할 때 css파일을 변경하는게 아닌 html요소에 인라인
+    //형태로 스타일 값 강제 적용
+    //상대 경로 설정할 때 index.html파일 기준으로 상대경로 설정
+
+    //02. 새로고침할 때마다 배경이 바뀌는 예시 코드
+    const imgs = ['bg1.jpg', 'bg2.jpg', 'bg3.jpg', 'bg4.jpg', 'bg5.jpg'];
+    const result = parseInt(Math.random() * 5);
+
+    switch (result) {
+      case 1: document.body.style.backgroundImage = `url(img/${imgs[0]})`;
+        break;
+      case 2: document.body.style.background = `url(img/${imgs[1]})`;
+        break;
+      case 3: document.body.style.background = `url(img/${imgs[3]})`;
+        break;
+      case 4: document.body.style.background = `url(img/${imgs[4]})`;
+        break;
+      default: document.body.style.background = `url(img/${imgs[5]})`;
+    } //default는 생략가능
+  </script>
+</body>
+
+</html>
