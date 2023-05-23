@@ -5,12 +5,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>switch 조건문 예시코드 실무</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <script>
+    /*
+       Switch
+       조건으로 나오는 값의 패턴이 정해져 있을떄 
+       해당 사례 (패턴)에 따라서 분기처리 
+    */
 
     //01. 새로고침할 때마다 배경색이 바뀌는 예시 코드
     switch (parseInt(Math.random() * 5)) {
@@ -45,7 +50,7 @@
       case 4: document.body.style.background = `url(img/${imgs[4]})`;
         break;
       default: document.body.style.background = `url(img/${imgs[5]})`;
-    } //default는 생략가능
+    } //default는 생략가능 default다음에는 코드가 없으니 굳이 break를 쓸 필요 없다!!!
   </script>
 </body>
 
