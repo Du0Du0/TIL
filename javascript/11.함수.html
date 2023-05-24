@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <script>
+    /*
+    함수(function)
+    -자주 쓰는 실행 코드들을 블록단위로 묶어서 패키징한 형태
+    -자주 쓰는 코드들을 기능 단위로 묶어서 재사용
+
+    함수정의 : 미리 function 키워드를 이용해서 자주쓰는 코드들을 패키징
+    함수호출: 미리 정의된 함수를 호출해야 비로서 실행됨
+
+    함수의 인수 (argument), 매개변수 (parameter)
+    -매개변수: 함수 외부에서 함수 내부에 특정 값을 전달하기 위한 통로명
+    -인수: 매개변수로 전달되는 값 자체
+
+    함수의 반환값 (return)
+    -함수 내부에서 만들어진 값을 함수 외부로 내보내는 값
+    -함수 내부의 코드 실행 도중에 강제로 코드를 종료해야 될 떄
+
+    return을 쓰는 이유
+    -특정 함수에서 만들어진 값을 다른 함수나 코드에서 활용하기 위함
+    -특정 조건일때 강제로 함수를 종료하기 위함
+    */
+
+    //함수 정의
+    function plus(a, b) { // 여기서 a와 b는 매개변수
+      const result = a + b;
+      console.log(result);
+      return result;
+    }
+
+    plus(3, 5); // 함수 호출
+    plus(345, 567); // 함수 호출
+
+    const num = plus(3, 5); // 만약 return을 쓰지 않는다면 값이 할당이 되지 않아서 undefined가 뜸, 여기서 3과 5는 인수
+    console.log(num);
+
+
+    // ----------------------------------------------------------
+
+    //실행 컨텍스트와 호이스팅 때문에 작동한다! 
+    //function문으로 선언된 함수는 호출위치가 자유로움
+    const num = plus(3, 5); // 만약 return을 쓰지 않는다면 값이 할당이 되지 않아서 undefined가 뜸, 여기서 3과 5는 인수
+    console.log(num);
+
+    //함수 정의
+    function plus(a, b) { // 여기서 a와 b는 매개변수
+      const result = a + b;
+      console.log(result);
+      return result;
+    }
+
+    //-------------------------------------------------------------
+
+    //미션1. 파라미터로 2개의 인수를 전달 받고 두개의 값을 더해서 리턴해주는 함수 제작
+    //만약 숫자가 아닌 값을 들어오면 콘솔문으로 안내메세지를 출력하도록 제작
+
+    function count(num1, num2) {
+      const typeNum1 = typeof num1;
+      const typeNum2 = typeof num2;
+
+      if (typeNum1 === 'number' && typeNum2 === 'number') {
+        return num1 + num2;
+      } else if (typeNum1 !== 'number' && typeNum2 !== 'number') {
+        return alert('숫자를 입력하시오 플리즈~~');
+      }
+    }
+
+    count(3, 5);
+    count('3', 5);
+    count('가', '나');
+
+    //---------------------------------------------------------------
+
+    //미션2. 인수로 전달되는 값이 숫자형 문자이면 강제로 숫자로 변환한 다음에 연산처리해서 리턴
+
+    function plus(num1, num2) {
+      const convertedNum1 = parseInt(num1);
+      const convertedNum2 = parseInt(num2);
+      const typeNum1 = typeof convertedNum1;
+      const typeNum2 = typeof convertedNum2;
+
+      if (typeNum1 !== 'number' || typeNum2 !== 'number') {
+        alert('인수로 전달된 두개의 값은 모두 숫자로 입력하세요')
+      } else {
+        return convertedNum1 + convertedNum2;
+      }
+    }
+
+    //---------------------------------------------------------------
+
+    //미션 3. 아래 함수에서 3번쨰 인수로 연산타입을 전달받아 4칙연산 가능하도록 처리
+
+  </script>
+</body>
+
+</html>
