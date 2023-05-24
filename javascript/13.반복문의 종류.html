@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>돔 제어</title>
+</head>
+
+<body>
+  <section id="wrap">
+    <article>box1</article>
+    <article>box2</article>
+    <article>box3</article>
+    <article>box4</article>
+    <article>box5</article>
+    <article>box6</article>
+    <article>box7</article>
+    <article>box8</article>
+    <article>box9</article>
+    <article>box10</article>
+  </section>
+
+  <script>
+    //단일 대상 탐색
+    //querySelector (단일 돔 객체 반환)
+    const frame = document.querySelector('#wrap');
+
+    //복수개의 대상을 탐색
+    //querySelectorAll (배열을 반환: 유사배열)
+    //유사배열: 배열의 형태는 띄우고 있으나 순수한 배열은 아니라서 배열관련 메서드 중에서 제한적인 기능만 사용가능
+    const boxs = document.querySelectorAll('article')
+
+    console.log(frame);
+    console.log(boxs[1]);
+    /*
+    반복문 - 특정 코드를 반복해서 호출할 때 (배열을 반복돌떄)
+
+    for - 제일 베이직한 반복문 형태
+    forEach - 배열관련 내장 함수, 순수배열과 유사배열 모두 반복가능, 반복기능만 있음
+    map - 배열관련 내장 함수, 순수배열만 반복 가능, 반복기능 + 데이터 복사 기능
+    for of - 순수배열, 유사배열 모두 반복가능, 문자까지 반복가능 (Iterable Object)
+    for in - 객체의 key값들을 반복
+    */
+
+    for (let i = 0; i <= 10; i++) {
+      console.log(`repeated - ${i}`);
+    }
+
+    const colors = ['red', 'green', 'blue'];
+    //배열관련 forEach내장함수에 인수로 콜백함수 전달
+    //콜백함수의 파라미터에서는 자동으로 3개의 인수값이 전달됨 (반복도는 데이터, 반복순서, 원본배열)
+    colors.forEach((data, index, arr) => {
+      console.log(data);
+      console.log(index);
+      console.log(arr);
+    });
+
+    boxs.forEach((box) => {
+      console.log(box);
+    })
+
+    boxs.forEach(box => {
+      console.log(box);
+    })
+
+    boxs.forEach((_, idx) => {
+      console.log(idx);
+    })
+
+    // map은 기존 배열값을 반복돌면서 deep copt하는 복사 기능. 복사 기능이 있음. forEach는 복사 기능이 없음
+    const arr1 = colors.map((data, index, arr) => {
+      console.log(data);
+      console.log(index);
+      console.log(arr);
+      return arr;
+    })
+    console.log(arr);
+
+    boxs.map((data, index, arr) => {
+      console.log(data);
+    })
+
+    // for of는 순서를 못구함. 주로 순서값이 필요없는 반복을 간결하게 처리할 때
+    for (const el of colors) {
+      console.log(el);
+    }
+
+    //for of가 한줄이면 중괄호 생략 가능
+    for (const el of colors) console.log(colorl);
+    for (const box of boxs) console.log(box);
+
+    //for of는 문자열을 반복처리 해야할때 (텍스트 모션 작업시 주로 활용)
+    const text = 'Hello';
+    for (const letter of txt) console.log(letter);
+
+    const studentA = {
+      name: 'David',
+      age: 20,
+      isFemale: false
+    }
+
+    //객체의 키값을 반복
+    for (const key in studentA) console.log(key);
+
+
+    //객체의 value값을 반복
+    for (const key in studentA) console.log(studentA[key]);
+  </script>
+</body>
+
+</html>
