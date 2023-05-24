@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>반복문 활용 예제</title>
+</head>
+
+<body>
+  <script>
+    const imgs = ['bg1.jpg', 'bg2.jpg', 'bg3.jpg', 'bg4.jpg', 'bg5.jpg'];
+
+    //imgs라는 배열값을 함수의 인수로 전달해서 브라우저 새로고침할 때마다 랜덤의 배경이미지 출력되도록 함수제작
+    //배열의 갯수에 따라 자동설정
+    //반복문을 활용
+
+    changeBG(imgs);
+
+    function changeBG(arr) {
+      const el = document.body.style;
+      const result = parseInt(Math.random() * imgs.length);
+
+      arr.forEach((data, idx) => {
+        if (idx === result) el.backgroundImage = `url(img/${data})`;
+      })
+      //arr.forEach((data, idx) => (idx === result) && (el.backgroundImage = `url(img/${data})`));
+    }
+
+    /*
+    if(0 === 0) el.backgroundImage = 'url(img/pic1.jpg)';
+    if(1 === 1) el.backgroundImage = 'url(img/pic1.jpg)';
+    if(2 === 2) el.backgroundImage = 'url(img/pic1.jpg)';
+    if(3 === 3) el.backgroundImage = 'url(img/pic1.jpg)';
+    if(4 === 4) el.backgroundImage = 'url(img/pic1.jpg)';
+    */
+
+
+  </script>
+</body>
+
+</html>
