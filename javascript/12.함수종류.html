@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수종류</title>
+</head>
+
+<body>
+  <script>
+    /*
+    선언적 함수
+    -function 키워드로 함수에 이름을 붙여서 미리 정의하는 형태
+    -function 함수명() {}
+    -호출위치가 자유로움
+
+    익명 함수
+    -함수에 이름이 없는 형태
+    -익명 함수 자체만으로는 실행이 불가하고 이벤트문이나 변수에 할다하는 방식으로 사용
+
+    대입형 함수 (함수 표현식)
+    - 변수에 익명함수를 대입해서 정의하는 형태
+    -const 변수명 = 익명함수;
+
+    즉시실행 함수
+    -일반적인 함수의 정의, 호출 단계가 없음
+    -자기자신을 익명함수로 정의하고 동시에 바로 호출
+    -특정 코드가 함수로 읽히는 바로 한번만 호출되야 되는 경우에 쓰임
+    -함수 내부의 값을 캡슐화해서 호이스팅을 막아야 할떄
+
+    화살표 함수 (arrow function)
+    -ES6에서 새로 나온 함수인데,
+    -기존의 함수 선언방식을 좀 더 간소화한 형태
+    -내부의 this객체를 생성하지 않음
+    -화살표 함수가 아닌 일반함수들은 this객체가 자동으로 만들어지고 함수의 실행위치에 따라서 this객체에 담기는 값이 달라짐 (오류발생 원인)
+    */
+
+    //선언적 함수
+    function plus(n1, n2) {
+      console.log(n1 + n2);
+    }
+    plus(2, 3);
+
+    //대입형 함수
+    const minus = function (n1, n2) {
+      console.log(n1 - n2);
+    }
+    minus(2, 3);
+
+    //즉시실행 함수
+    (function (n1, n2) {
+      console.log(n1 * n2);
+    })(2, 3);
+
+
+    //화살표 함수
+    //특정 함수를 이벤트 함수의 넣어야되는 상황에서는 무조건 화살표 함수를 쓸 예정
+    //대입형 함수는 앞으로 화살표 함수로 쓸 예정임!
+    const divider = (n1, n2) => {
+      console.log(n1 / n2);
+    }
+
+
+  </script>
+</body>
+
+</html>
