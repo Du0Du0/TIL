@@ -1,0 +1,54 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+section {
+	width: 600px;
+	margin: 100px auto;
+	border: 1px solid #888;
+
+	.btns {
+		width: 100%;
+		height: 40px;
+		display: flex;
+
+		li {
+			flex: 1;
+			height: 100%;
+			background: #888;
+			font: bold 14px/40px 'arial';
+			color: #ddd;
+			text-align: center;
+			cursor: pointer;
+
+			&.on {
+				background: #fff;
+				color: #333;
+			}
+		}
+	}
+
+	.panels {
+		article {
+			width: 100%;
+			height: 200px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font: bold 20px/1 'arial';
+			color: #888;
+			display: none;
+
+			&.on {
+				display: flex;
+			}
+		}
+	}
+}
