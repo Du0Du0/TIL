@@ -26,8 +26,8 @@ btnToggle.addEventListener('click', (e) => {
 	if (isOn) {
 		btnToggle.classList.remove('on');
 		box.classList.remove('on');
-	} else (!isOn) {
-    btnToggle.classList.add('on');
-	box.classList.add('on');
-  }
+	} else {
+		btnToggle.classList.add('on');
+		box.classList.add('on');
+	}
 });
