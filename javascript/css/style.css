@@ -10,3 +10,33 @@ body {
 #wrap {
 	border: 1px solid red;
 }
+
+article {
+	width: 300px;
+	height: 300px;
+	background: grey;
+	margin: 100px;
+	transform: rotate(0deg) scale(1);
+	transition: 0.5s;
+}
+
+article.on {
+	transform: rotate(360deg) scale(0.5);
+	background: aqua;
+}
+
+button {
+	width: 100px;
+	height: 30px;
+	font: bold 12px/30px 'arial';
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	background: gray;
+	transform: scale(1);
+	transition: 0.3s;
+}
+button.on {
+	background: hotpink;
+	transform: sclae(1.3);
+}
