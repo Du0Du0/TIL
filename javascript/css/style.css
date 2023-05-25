@@ -42,12 +42,12 @@ button.on {
 }
 
 /* tab*/
-
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
+
 ul,
 ol,
 li {
@@ -59,12 +59,12 @@ section {
 	margin: 100px auto;
 	border: 1px solid #888;
 }
-.btns {
+section .btns {
 	width: 100%;
 	height: 40px;
 	display: flex;
 }
-li {
+section .btns li {
 	flex: 1;
 	height: 100%;
 	background: #888;
@@ -73,12 +73,11 @@ li {
 	text-align: center;
 	cursor: pointer;
 }
-li.on {
+section .btns li.on {
 	background: #fff;
 	color: #333;
 }
-
-article {
+section .panels article {
 	width: 100%;
 	height: 200px;
 	display: flex;
@@ -88,7 +87,8 @@ article {
 	color: #888;
 	display: none;
 }
-
-.panels.on {
+section .panels article.on {
 	display: flex;
 }
+
+/*# sourceMappingURL=style.css.map */

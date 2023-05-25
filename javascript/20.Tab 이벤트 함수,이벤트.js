@@ -41,6 +41,14 @@ btns.forEach((btn, idx) => {
 	});
 });
 
+////예제03 - 이미 활성화된 버튼 클릭시 불필요하게 함수호출 방지
+btns.forEach((btn, idx) => {
+	btn.addEventListener('click', () => {
+		if (e.currentTarget.classList.contains('on')) return;
+		[btns, boxs].forEach((el) => activation(el, idx));
+	});
+});
+
 //함수정의
 function activation(arrEl, idx) {
 	for (const el of arrEl) el.classList.remove('on');
