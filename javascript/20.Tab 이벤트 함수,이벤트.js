@@ -12,6 +12,30 @@
 const frame = document.querySelector('section');
 const btns = frame.querySelectorAll('li');
 const boxs = frame.querySelectorAll('article');
+const ul = document.querySelector('ul');
+
+const childEl = ul.children;
+console.log(childEl);
+ul.append(document.createElement('p'));
+console.log(nodeListEl);
+
+/*
+HTMLCollectio
+-document.getElementById('아이디선택자')
+-document.getElementByClassName('클래스 선택자');
+-부모 요소.children
+-forEach로 반복불가 -> 순수 배열로 변환해야지 forEach활용가능
+-Live DOM (동적인 돔) 
+
+NodeList :
+-document.queryselector('선택자')
+-document.queryselectorAll('선택자')
+-forEach 반복 가능
+-Static DOM (정적인 돔)
+
+유사배열을 순수배열로 변환
+Array.from(유사배열)
+*/
 
 //이벤트 바인딩
 btns.forEach((btn, idx) => {

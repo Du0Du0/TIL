@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    article {
+      width: 200px;
+      height: 200px;
+      background: aqua;
+      margin: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <article></article>
+
+  <a href="https://naver.com" target="_blank">네이버</a>
+</body>
+
+<script>
+  const box = document.querySelector('article');
+  const link = document.querySelector('a');
+
+  //box.style.backgroundColor = 'hotpink';
+  //js는 css파일에 접근할 수 없으므로 아래와 같이 style객체값을 출력해도 값이 비어있음
+  console.log(box.style.backgroundColor);
+
+  //css로 적용되어 있는 스타일값을 가져오기 위해선
+  //이미 화면에 랜더링 된 결과값을 다시 재연산해서 가져와야 함
+  console.log(getComputedStyle(box)['background-color']);
+
+  //DOM의 속성명에 해당하는 value값을 반환
+  console.log(link.getAttribute('href'));
+  console.log(link.getAttribute('target'));
+
+  //DOM의 속성값 변경
+  link.setAttribute('href', 'https://www.nate.com');
+  link.setAttribute('target', '_self');
+
+  //DOM의 텍스트노드 변경
+  link.innerText = '네이트';
+
+
+
+
+
+
+
+  //==============
+
+  //추출한 색상 값을 이용하여 새로운 색상을 생성합니다. 이때 적절한 알고리즘을 사용하여 두 색상을 섞을 수 있습니다. 일반적으로는 각 색상의 RGB 값 또는 HSL 값에 대해 가중 평균이나 비율을 적용하여 새로운 색상을 계산
+
+  var firstColor = getComputedStyle(firstElement)['background-color'];
+  var secondColor = getComputedStyle(secondElement)['background-color'];
+
+  function mixColors(color1, color2, ratio) {
+    // color1과 color2를 각각 RGB 값으로 변환
+    var rgb1 = color1.match(/\d+/g).map(Number);
+    var rgb2 = color2.match(/\d+/g).map(Number);
+
+    // 각각의 RGB 값에 비율을 적용하여 새로운 RGB 값을 계산
+    var newR = Math.round((1 - ratio) * rgb1[0] + ratio * rgb2[0]);
+    var newG = Math.round((1 - ratio) * rgb1[1] + ratio * rgb2[1]);
+    var newB = Math.round((1 - ratio) * rgb1[2] + ratio * rgb2[2]);
+
+    // 새로운 RGB 값을 문자열 형태로 반환
+    return 'rgb(' + newR + ',' + newG + ',' + newB + ')';
+  }
+
+  var newColor = mixColors(firstColor, secondColor, 0.5); // 첫 번째 색상과 두 번째 색상을 1:1 비율로 섞음
+  otherElement.style.backgroundColor = newColor; // 다른 요소에 적용
+
+</script>
+
+</html>
