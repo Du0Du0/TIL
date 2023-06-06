@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체 합치기</title>
+</head>
+
+<body>
+  <script>
+    //ES5에서의 객체 합치기 
+    const obj1 = { name: 'David', age: 20 };
+    const obj2 = { name: 'Andy', address: 'seoul' };
+
+    //assign(새롭게 변환될 빈객체, 덮어쓰기 당할 객체, 덮어쓰기 할 객체)
+    //두개까지만 한번에 합칠수 있음
+    const newObj = Object.assign({}, obj1, obj2);
+    console.log(newObj);
+
+
+    //ES6에서의 객체 합치기 
+    const objA = { name: 'David', age: 20 };
+    const objB = { name: 'Andy', address: 'seoul' };
+
+    //전개 연산자로 각체값을 합칠 때에는 뒤에 있는 객체 값이 앞에 있는 객체를 덮어쓰기 하면서 합쳐짐
+    //두개 이상의 것을 한번에 합칠 수 있음
+    const newObjAll = { ...objA, ...objB };
+    console.log(newObjAll); // {name: "Andy", age: 20, address: "se...}
+
+
+  </script>
+</body>
+
+</html>

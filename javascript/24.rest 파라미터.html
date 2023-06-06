@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rest 파라미터</title>
+</head>
+
+<body>
+  <script>
+    //전개연산자로 배열에 값 추가
+    const arr = [1, 2, 3];
+    const newArr = [...arr, 4];
+    console.log(newArr); // [1, 2, 3, 4]
+
+    //전개연산자로 객체에 값을 추가
+    const studentA = {
+      name: 'David',
+      age: 20,
+    }
+    const newStudentA = { ...studentA, address: 'seoul' }
+    console.log(newStudentA); // {name: "David", age: 20, address: "s...}
+
+    //rest parameterf (나머지 매개변수)
+    // const test = (a, b, c, d) => {
+    //   console.log(txt);
+    //   console.log(a);
+    //   console.log(b);
+    //   console.log(c);
+    //   console.log(d);
+    // }
+
+
+    //특정값을 배열로 묶어서 통으로 전달해야 할 떄
+    const test = (txt, ...rest) => {
+      console.log(txt); // 홍길동
+      console.log(rest); // ["나나", "다다", "셋셋", "다디"]
+    }
+    test('홍길동', '나나', '다다', '셋셋', '다디');
+
+
+  </script>
+</body>
+
+</html>

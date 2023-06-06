@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>불변성관련 배열 전용 내장 함수</title>
+</head>
+
+<body>
+  <script>
+    //문자열.includeㄴ('찾을 문자열') : 원본 문자열에서 인수로 전달된 문자열이 있는지 확인해서 boolean값 반환
+    const names = ['김영희', '김철수', '김수진', '최만섭'];
+    console.log('김영희'.includes('김'))
+
+    //find - 배열에서 조건이 만족하는 값이 있으면 true를 반환하여 바로 종료
+    //find는 해당하는 결과들에서 제일 첫번째것만 뽑아냄 => 따라서 중복 되는 값이 만든 것쓸때는 주의!!
+    //'홍'씨가 있는 사람이 있는 지 찾을 때
+    const result = names.find(el => el.includes('김'))
+    console.log(result);
+
+    //찾고자 하는 배열의 순서값을 반환
+    const idx = names.findIndex(el => el.includes('이철수'));
+    console.log(idx);
+
+    //filiter = 배열에서 찾고자 하는 모든 값을 반환
+    //앞에 느낌표를 붙여서 제외할 수 있다!
+    //filter 사용시 조건식 앞에 !붙이면 해당 조건이 아닌 나머지 값들이 배열로 반환
+    const result2 = names.filter(el => !el.includes('김'));
+    console.log(result2);
+
+    //map - 기존의 배열을 반복처리하면서 새로운 배열을 deep copy
+    const result3 = names.map(el => el + '님');
+    console.log(result3); // ["김영희님", "김철수님", "김수진님", "최만섭님"]
+
+    //기존의 names배열을 찍다보면 원본 배열은 그대로 유지가 되는 불변성(immutable)상태인것을 알 수 있다.
+    //find, filter, map 모두 불변성을 유지시켜주느느 배열 전용 함수 (추후 react에서 원본값과 변경값을 비교하기 위한 중요한 개념)
+    //위의 함수들은 배열 전용 내장 함수 이므로 querySelectorAll로 반환되는 유사배열에서는 사용불가
+    //유사배열에 해당 함수들을 사용하도 싶을 때에는 Array.from()을 이용해 순수배열로 변환한 상태에서 사용 가능
+
+
+    //순수배열 - array 정적인 값 단순한 값
+    //유사배열 - nodelist 복잡한 로직 (내부적으로 구분하기 위함) map으로 할 수 없다.
+    //getElementBy(HTMLCollectiond에서 리턴)보다 document.querySelector(NodeList에서 리턴)를 쓰는 이유는 복잡한 로직인 유사배열을 위한 라이브러리 같은 개념!
+    //저번에 콘솔 찍었을 때 HTMLCollection에는 복잡한 정보가 많이 담겨있어서 querySelector를 사용하는게 좋다.
+
+    //reduce
+    //기존의 값을 축적하면서 누적된 연산값을 반환
+    //배열.reduce((누적값, 한계값, 순서)=> 연산식, 초기값)
+    //전체 학원생들의 평균값들을 구할 때 사용
+    const origin = [1, 2, 3];
+    const accummmulatedNumber = origin.reduce((acc, cur, idx) => acc + cur);
+    console.log(accummmulatedNumber); //6
+
+    //연산식 , 뒤에 값은 10부터 시작!(초기값 설정가능)
+    const accummmulatedNumber1 = origin.reduce((acc, cur, idx) => acc + cur, 10);
+    console.log(accummmulatedNumber); //16
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //기본 proimise의 사용법
+    //비동기로 동작되는 구문을 new Promise를 통해 반환되는 인스턴스 객체에 담아 내보냄
+    //해당 프로미스 객체에서는 then,catch메서드 호출 가능 (동기적으로 실행돰)
+    //실제로 직접 promise객체를 생성해서 내보낼 일이 거의 없음
+    //비동기가 발생하는 대표적인 사례가 외부 데이터를 불러올때 발생
+    //es6애서 fetch라는 메서드가 기본적으로 promise객체를 내장해서 데이터를 반환해주기 때문
+
+
+    //프로미스 객체를 반환하는 함수 필요
+    function delay(time, cond) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log('test')
+          cond ? resolve('success') : reject('fail');
+        }, time)
+      })
+    }
+
+    console.log('start');
+    //delay함수에서 아무리 시간이 오래 걸린다고 허더라도 해당 함수는 프로미스 갹체를 전달하기 때문에
+    //뒤에 then이나 catch문을 호출할 수가 있고 해당 함수들은 동기적으로 실행됨
+    //true일때는 catch문이 실행이 안됨 false일때는 catch문이 실행됨
+    //아래 then, catch문을 호출 할 수 있고 해당 함수들을 동기적으로 실행됨
+    //.then catch일 때는 true일 경우에는 catch문이 실행이 안되지만
+    //promise 객체 반환하지 않을 때 try catch일 때 쓰고 try안에 함수가 아니라 다른 에러가 뜨는 경우 catch로 강제로 실핼되게 할 수 있음
+    //promise 객체를 반환할때는 then catch
+
+
+    //delay함수가 promise객체를 반환하고 있기 때문에 동기적으로 then, catch문을 써서 원하는 코드를 동기적으로 호출가능
+    delay(2000, true).
+      then((res) => {
+        console.log('res')
+        console.log('end')
+      }).catch((err) => {
+        console.log('err')
+        console.log('res')
+      })
+
+    //위의 then, catch문은 해당 함수의 인수로 다시 콜백함수를 넣어야 되기 때문에 코드 가독성이 떨어짐
+    //해당 문제점을 개선하기 위해 async await문 활용
+    //async await을 활용하기 위한 전제 조건  - 이전 함수가 promise객체를 반환하는 함수가 있어야 되고 해당 함수를 wrapping할 함수 필요
+    //async await을 활용하면 then문에 비해 간결하게 동기화 처리할 수 있으나 catch문 활용이 불가능
+    //이를 위해서 아래와 같이 try catch문으로 강제 예외 처리
+
+
+    //delay함수가 promise객체를 반환할 때 wrapping함수를 만들고 async키워드를 붙여주고
+    //그 안쪽에서 promise 객체를 반환하는 함수 앞쪽에 await를 써주면
+    //그 이후 실행되는 코드 동기화
+    async function wrapper() {
+
+      try {
+        const result = await delay(2000, false);
+        console.log('end');
+        console.log('result');
+      }
+      catch (err) {
+        console.log(err);
+      }
+    }
+
+    }
+
+
+
+
+    wrapper()
+
+
+
+      //async and waite
+  </script>
+</body>
+
+</html>

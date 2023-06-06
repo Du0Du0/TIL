@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전개 연산자</title>
+</head>
+
+<body>
+  <script>
+    //기존 배열 초기화
+    const arr = [1, 2, 3];
+
+    //원본 배열값을 참초하는 값을 출력
+    const newArr1 = arr; // 이건 복사하는게 값이 아닌 참조링크임. 그래서 결국 원본을 건들게 됨
+
+    console.log(arr); // {1,2,3} 참고링크를 가져옴
+
+    //기존 arr배열의 값을 꺼내와서 복사한 값을 출력
+    console.log(...arr); // 1,2,3 복사한 다음에 배열안에 있는 값을 꺼내오는 것 => 다시 배열로 묶어줘야함
+
+    //꺼내와서 복사한 값을 다시 배열로 묶어주고 새로운 변수에 할당
+    //기존 원본은 유지가 되면서 새로운 복사본이 만들어진 deep copy
+    const newArr = [...arr]; // {1,2,3} 
+
+    //새로운 배열 값을 변경해도
+    newArr[0] = 0;
+
+    //원본 배열은 유지가 되고 새로운 배열만 바뀌는 불변성 유지
+    console.log(arr);
+    console.log(newArr);
+
+    //ES5에서의ㅣ 배열 합치기
+    var a = [1, 2, 3];
+    var b = [3, 4, 5];
+    var ab = a.concat(b);
+    console.log(ab); //[1, 2, 3, 3, 4, 5]
+
+    //ES6애서의 배열 합치기
+    const arr1 = [1, 2, 3];
+    const arr2 = [3, 4, 5];
+    const combinedArr = [...arr1, ...arr2];
+    console.log(combinedArr); // [1, 2, 3, 3, 4, 5]
+
+    //전체 배열에서 특정 값의 순서값을 반환
+    const index = combinedArr.indexOf(2);
+    console.log(index);
+
+    //배열의 중복값 제거
+    const result = combinedArr.filter((el) => el === 2);
+    console.log(result); // [2]
+
+
+    //배열의 중복값 제거
+    //반복 + deep copy + filtering
+    const result1 = combinedArr.filter((el) => el !== 2);
+    console.log(result); // [1, 3, 3, 4, 5]
+
+
+    //배열의 중복값 제거
+    //반복 + deep copy + filtering
+    //const result = combinedArr.filter((el.idx) => combinedArr.indexOf === idx);
+    const result5 = combinedArr.filter((el, idx) => el.indexOf !== 2);
+    console.log(result); // [1, 3, 3, 4, 5]
+
+    const abc = ['red', 'yellow', 'blue'];
+    const newAbc = [...new Set(abc)];
+    newAbc[0] = 1;
+    console.log(newAbc); //  [1, "yellow", "blue"]
+    console.log(abc); // ["red", "yellow", "blue"]
+
+
+    //미션1 -위의 두개 메서드를 활용해서 배열의 중복 갑 제거
+    const data = ['Dohyun', 20, 'game'];
+    const newData = [...data];
+    const result3 = newData.filter((el, idx) => el === 'Dohyun');
+    console.log(result3); //  ["Dohyun"]
+
+    const data1 = ['Dohyun', 20, 'game'];
+    const newData2 = [...data];
+    const result4 = newData.filter((el, idx) => el !== 'Dohyun');
+    console.log(result3); //  [20, "game"]
+
+
+    //filter는 배열 전용 메서드니까 객체 배열은 안될꺼다.
+    //그럴 떈 for in을 쓰자 (이건 근데 프로터티 값이 아니라 키 값을 가져옴)
+
+
+
+
+
+  </script>
+</body>
+
+</html>
